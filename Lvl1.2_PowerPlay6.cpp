@@ -17,6 +17,7 @@ int main()
     int y2();
   std::cin >> x1 >> y1 >> x2 >> y2;
     int distance = ((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2));
-  std::cin >> distance >> 
-  return 0;
+    std::cin >> distance;
+  std::cout << "The distance between these coordinates is " << distance << " units." << std::endl;
+    return 0;
 }
