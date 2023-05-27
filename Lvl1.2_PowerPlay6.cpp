@@ -15,6 +15,8 @@ int main()
     int y1{};
     int x2{};
     int y2();
-  std::cin >> std::
+  std::cin >> x1 >> y1 >> x2 >> y2;
+    int distance = ((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2));
+  std::cin >> distance >> 
   return 0;
 }
