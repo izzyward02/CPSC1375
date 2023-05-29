@@ -201,9 +201,52 @@ int main()
   return 0;
 }
 /* prints "Hi!" '\n' "My name is Ally." '\n'
-* command 'std::ed
+* command 'std::cout' is buffered and is not sent to the console automatically
 * Buffer - stores the requested output in a region of memory and is set aside to collect the requests
 *   periodically, the buffer is flushed, such that all data in the buffer is sent to the console
+*   buffering is used for large amounts of data to maximize overall throughput at the cost of response time
+
+* std::endl vs. \n:
+* std::endl is inefficient since it moves the cursor to a new line and also flushes the buffer each time it is executed
+*   because of this, '\n' is preferred, which moves the cursor to a new line but doesn't request a flush, which increases performance of the console
+* '\n' limits clutter in the code and increases readability
+*   can be used two different ways */
+// EXAMPLE...
+#include <iostream>
+
+int main()
+{
+  int x{ 5 };
+  std::cout << "x is equal to: " << x << '\n'; //uses '\n'
+  std::cout << "x has been assigned a number\n"; //uses embedded '\n'
+  return 0;
+}
+
+/* std::cin:
+* another preferred variable that is defined in the iostream library
+*   stands for 'character input' and reads input from the keyboard using '>>', referred to as the EXTRACTION OPERATOR
+*   input must be stored in a variable to use std::cin command
+* serves as a simple way to get keyboard input from the user
+*   this command does not need '\n' since the user must manually press ENTER to submit their input
+*   it is also possible to concatenate values on a single line using std::cin */
+// EXAMPLE...
+#include <iostream>
+
+int main()
+{
+  std::cout << "Enter two numbers separated by a space: ";
+  
+  int x{ }; //defines var x to hold user input
+  int y{ }; //defines var y to hold user input
+  std::cin >> x >> y; //gets the user input & stores it in the variables
+  
+  std::cout << "You entered " << x << " and " << y << '\n';
+  return 0;
+}
+/* produces output 'Enter two numbers separated by a space: 5 6' '\n' 'You entered 5 and 6' '\n'  */
+
+/*Lesson 1.6: Uninitialized Variables & Undefined Behavior:
+*
 
 //END OF CHAPTER 1 NOTES
 
