@@ -246,6 +246,120 @@ int main()
 /* produces output 'Enter two numbers separated by a space: 5 6' '\n' 'You entered 5 and 6' '\n'  */
 
 /*Lesson 1.6: Uninitialized Variables & Undefined Behavior:
+* Uninitialized Variables:
+*C++ does not initialize most variables to a given value automatically
+* Uninitialized Variable - a variable that has not been given a known value
+*   using values of uninitialized variables can lead to unexpected errors
+*   most modern compilers will attempts to detect if a variable is being used without being given a value
+*     will generally throw a compile-time warning or error such as 'c:\VCprojects\test\test.cpp(11) : warning C4700: uninitialized local variable 'x' used
+* using uninitialized variables is one of the most common mistakes & is the most challenging to debug
+*   a simple program structure can help with this... */
+#include <iostream>
+
+void doNothing(int&) //in place to trick the compiler into thinking variable 'x' is used
+{
+}
+
+int main()
+{
+  int x; //defines a var 'x' as an integer & is uninitialized
+  doNothing(x); //make the compiler think a value is being assigned to 'x'
+  std::cout << x << '\n'; //prints value of 'x' to screen, but will output a random value
+  return 0;
+}
+
+/* Undefined Behavior:
+* using values from uninitialized variables is a prime example of undefined behavior
+* Undefined Behavior - the result of exeuring code whose behavior is not well-defined by the C++ language
+*   C++ doesn't have any rules determining what happens if the value of a variable is used that has not been given a known value
+* Signs of undefined behavior:
+*   > your program produces different results each time it runs
+*   > your program consistently prodcues the same incorrect result
+*   > your program behaves inconsistently (produces the correct result sometimes but other times not)
+*   > your program seems like it is working but produces incorrect results later on
+*   > your program crashes, either immediately or later
+*   > your program works on some compilers but not others
+*   > your program works until your change some other seemingly unrelated code
+
+* Implementation-Defined Behavior & Unspecified Behavior:
+* defined as the behavior of some syntax when it is left up to the implementation (the compiler) to define
+*   different compilers may produce different results in regards to a simple program
+* Unspecified Behavior - almost identical to implementation-defined behavior in that the behavior is left up to the compiler, but the compiler is not required to document the behavior
+*   generally want to avoid implementation-defined and unspecified behavior, as it may cause malfunctions */
+
+/*Lesson 1.7: Keywords & Naming Identifiers
+* C++ reserves a set of 92 words (as of C++20) for its own use
+* Keyword - a reserved word in a programming language that cannot be used for any other purpose than what it is intended
+* the 92 keywords in C++20...
+*     - alignas     - alignof       - and       - and_eq        - asm       - auto          - bitand            - bitor
+*     - bool        - break         - case      - catch         - char      - char8_t       - char16_t          - char32_t
+*     - class       - compl         - concept   - const         - consteval - constexpr     - constinit         - const_cast
+*     - continue    - co_await      - co_return - co_yield      - decltype  - default       - delete            - do
+*     - double      - dynamic_cast  - else      - enum          - explicit  - export        - extern            - false
+*     - float       - for           - friend    - goto          - if        - inline        - int               - long
+*     - mutable     - namespace     - new       - noexcept      - not       - not_eq        - nullptr           - operator
+*     - or          - or_eq         - private   - protected     - public    - register      - reinterpret_cast  - requires
+*     - return      - short         - signed    - sizeof        - static    - static_assert - static_cast       - struct
+*     - switch      - template      - this      - thread_local  - throw     - true          - try               - typedef
+*     - typeid      - typename      - union     - unsigned      - using     - virtual       - void              - volatile
+*     - wchar_t     - while         - xor       - xor_eq
+* C++ also defines special identifiers: 'override', 'final', 'import', and 'module'
+*   have a specific meaning whan used in certain contexts but are not reserved
+
+* Identifier Naming Rules:
+* there is a handful of rules that must be followed when naming identifiers...
+*   > the identifier can not be a keyword
+*   > the identifier can only be composed of letters (lower or upper case), numhers, and the underscore character
+*     --> cannot contain symbols or whitespace
+*   > the identifier must begin with a letter or an underscore (it CANNOT start with a number)
+*   > C++ is case sensitive (i.e., nvalue, NValue, and nValue are all different identifiers)
+
+* Identifier Naming Best Practices:
+* it is a convention in C++ that variable names should start with lowercase letters
+*   if a var name is one word, the whole thing should be written in lowercase
+* function names are often started with lowercase letters
+*   identifier names that start with a capitalletter are typicallu used for user-defined types (such as structs, classes, and enumerations)
+* if the var name is multi-word, the words can either be separated by underscores or intercapped using camelCase conventions */
+// EXAMPLES...
+int my_variable_name; //correct
+int my_function_name(); //correct
+int myVariableName; //correct
+int myFunctionName(); //correct
+int my variable name; //invalid (whitespace not allowed)
+int my function name(); //invalid (whitespace not allowed)
+int MyVariableName; //valid but incorrect (should start w/ lowercase)
+int MyFunctionName(); //valid but incorrect (should start w/ lowercase)
+/* if you are working in someone else's code, it is best practice to follow the same coding conventions and style that it was written in
+* AVOID naming identifiers beginning with an underscore (these are typically reserved for OS, library, and/or compiler use
+* your identifiers should make clear what the value is for (find a medium betweeen over and under complex names) */
+// EXAMPLES OF GOOD AND BAD IDENTIFIERS...
+int ccount;  //BAD (What does the 'c' before count stand for?
+int customerCount;  //GOOD  (Clear what we are counting)
+int i;  //EITHER (Okay if use is trivial, bad otherwise)
+int index;  //EITHER (Okay if obvious what we are indexing)
+int totalScore; //EITHER (Okay if there is only one score, otherwise too ambiguous)
+int _count; //BAD (Do not start with an underscore)
+int count;  //EITHER (Okay if obvious what we are counting)
+int data; //BAD (What kind of data?)
+int time; //BAD (Is this in seconds, minutes, or hours?)
+int minutesElapsed; //GOOD (Descriptive)
+int value1, value2; //EITHER (Can be hard to differentiate between the two)
+int numApples;  //GOOD (Descriptive)
+int monstersKilled; //GOOD (Descriptive)
+int x,y;  //EITHER (Okay if use is trivial, bad otherwise)
+/* in any case, avoid using abbreviations unless they are common, as they make your code harder to read
+* always include comments that clarify what a peice of code does if the meaning of the code has any possibility of being questioned */
+
+/*Lesson 1.8: Whitespace & Basic Formatting
+* Whitespace - a term that refers to characters that are used for formatting purposes
+*   in C++, this refers primarily to spaces, tabs, and new lines
+*   the compiler generally ignores whitespace with a few minor exceptions (i.e., processing text literals)
+*   C++ is referred to as a 'whitespace-indepedent language'
+* new lines are not allowed in quoted text
+*   quoted text separated by whitespace will be concatenated
+* another exception that C++ pays attention to whitespace is when single-line comments extend into other lines
+
+* Basic Formatting:
 *
 
 //END OF CHAPTER 1 NOTES
