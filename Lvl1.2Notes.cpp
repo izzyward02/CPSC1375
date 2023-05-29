@@ -158,7 +158,52 @@ std::cin >> x;
 *   tells the compiler to expect that the variable may not be used so that it will not generate an error or warning */
 
 /* Lesson 1.5: Introduction to iostream: cout, cin, & endl
-* 
+*I/O Library:
+* Input/Output Library - part of the C++ standard library that deals with basic input and output
+*   used to get input from the keyboard and output to the console
+*   functionality is used by including the 'iostream' header at the top of any code file with '#include <iostream>'
+*std::cout
+* used to send data to the console to be printed as text
+* stands for 'character output' */
+// EXAMPLE...
+#include <iostream>
+
+int main()
+{
+  std::cout << "Hello world!"; //prints to console
+  return 0;
+}
+/* the '<<' is called the INSERTION OPERATOR, which sends the text
+* cout can also send numbers and other acceptable values and can also be used to print them
+* multiple insertion operators can be used on the same line to concatenate multiple outputs */
+// EXAMPLE...
+#include <iostream>
+
+int main()
+{
+  int age { 20 }; //defines int variable 'age' and assigns value 20
+  std::cout << "I am " << age << " years old."; //concatenates to a sentence
+  return 0;
+}
+
+/* std::endl:
+* note that separate output statements don't result in outputs on separate lines
+* command 'std::endl' tells the console when to move to a new line
+*   stands for "end line" and is similar in use to the traditional '\n' command
+* BEST PRACTICE: output a new line whenever a line of output is complete */
+// EXAMPLE...
+#include <iostream>
+
+int main()
+{
+  std::cout << "Hi!" << std::endl; //cursor will move to next line
+  std::cout << "My name is Ally." << std::endl;
+  return 0;
+}
+/* prints "Hi!" '\n' "My name is Ally." '\n'
+* command 'std::ed
+* Buffer - stores the requested output in a region of memory and is set aside to collect the requests
+*   periodically, the buffer is flushed, such that all data in the buffer is sent to the console
 
 //END OF CHAPTER 1 NOTES
 
