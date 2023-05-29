@@ -1,6 +1,6 @@
 /** Author: Izzy Ward*     UALR* 
 * Date:        May 25, 2023*
-* File:        Source.cpp*
+* File:        Lvl1.2_PracticeBattle.cpp*
 * Purpose:    The purpose of this laboratory is to review very basic Programming I topics*           
 as well as practice downloading, modifying, and submitting a Visual* 
 Studio Project.*/
