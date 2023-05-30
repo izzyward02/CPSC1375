@@ -16,6 +16,26 @@ int main()
     std::string num2;
   std::cin >> num1 >> num2;
   
+  int userChoice{};
+  std::cin >> userChoice;
   
+  userChoice--;
+  switch ((Coin)userChoice)
+  {
+    case Coin::penny:
+      std::get <0> (purse)++;
+      break;
+    case Coin::nickel:
+      std::get <1> (purse)++;
+      break;
+    case Coin::dime:
+      std::get <2> (purse)++;
+      break;
+    case Coin::quarter:
+      std::get <3> (purse)++;
+      break;
+    default:
+      break;
+  }
   return 0;
 }
