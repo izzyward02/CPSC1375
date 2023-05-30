@@ -360,6 +360,25 @@ int x,y;  //EITHER (Okay if use is trivial, bad otherwise)
 * another exception that C++ pays attention to whitespace is when single-line comments extend into other lines
 
 * Basic Formatting:
+* C++ does not enforce formatting restrictions on the programmer
+*   the best coding format is the one that produces the most readable, consistent code
+* recommendations for basic formatting in C++...
+*   1. Use tabs or spaces for indentation (3-4 spaces per indent)
+*   2. The two acceptable styles for function braces are on the same line as the statement or on the line immediately following it
+*      ---> the common practice is to start a new line with curly braces under the statement
+*   3. Each statement within curly braces should start one tab intentation in from the opening brace of the function
+*   4. Lines should not be too long (around 80 characters has been the de facto standard)
+*      ---> if lines should be longer, they should be split reasonably into multiple lines
+*   5. If a long line is split with an operator ( << or +), the operator should be plcaed at the beginning of the next line
+*   6. use whitespace to make your code easier to read by aligning values or comments to or adding spaces between blocks
+* ultimately, C++ gives the user the power to choose any formatting styles, but it is best to understand readable conventions
+
+* Automatic Formatting:
+* most IDEs will assist with formatting as it is typed
+*   however, as code is added or removed or code is pasted, the IDE's default formatting can be altered
+*   automatic formatting settings are recommended to keep the coding style consistent throughout the program  */
+
+/*Lesson 1.9: Introduction to Literals & Operators
 *
 
 //END OF CHAPTER 1 NOTES
