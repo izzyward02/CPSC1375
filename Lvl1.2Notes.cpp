@@ -640,7 +640,31 @@ int main()
 *     a logger can also be easily disabled by changing the log identifier to 'none' */
 
 /*Lesson 3.6: Using an Integrated Debugger: Stepping
-* 
+* Program State - the current point of execution within the program and the information held within that point
+* modern IDEs come with an integrated debugger tool that is designed to identify bugs without altering the code
+* Debugger - a computer program that allows the programmer to control how another program executes while examining the program state
+*   this tool helps the programmer observe the path of execution as the program runs, but at a slower pace
+* integrated debuggers are convenient and recommended for beginners
+*   command line debuggers are well-supported and are still commonly used in environments that do not support graphical interfaces
+* TIP: Debugger keyboard shortcuts will only work if the IDE debugger is the active window
+* WARNING: Do not use the integrated debugging feature without making sure that your compiler is correctly configured
+* Stepping - the name for a set of related debugger features that let the user execute (step through) the code piece by piece
+* Step Into - a debugging command that executes the next statement in the normal execution path and pauses the execution to examine the state
+*   if the executed statement contains a function call, 'step into' causes the program to jump to the top of the function and pause
+* when the program is not running and the first debug command executes, the following things will likely happen...
+*   > the program will recompile if needed
+*   > the program will begin to run but the console output will be empty
+*   > the IDE may open some diagnostic windows, such as "Diagnostic Tools", "Call Stack", and "Watch"
+* the 'step into' command will show some type of marker on the current line number as the stepping occurs
+*   the line it points to will be executed NEXT, not what is being executed currently
+* Step Over - a debugging command that executes the next statement in the normal execution path of the program, executes through a function, then pauses
+*   this command only returns control to the programmer after an entire function block as been stepped over
+*   provides a convenient way to skip functions that you are sure already work
+* Step Out - executes the next line of code and all remaining code in the function currently being executed
+*   provides a convenient way to execute the rest of a function block when it has been debugged */
+
+/*Lesson 3.7: Using an Integrated Debugger: Running & Breakpoints
+*
 
 //END OF CHAPTER 3 NOTES
 //END OF LVL 1.2 NOTES
