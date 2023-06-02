@@ -556,9 +556,91 @@ int main()
 
 //CHAPTER 3: DEBUGGING C++ PROGRAMS
 
-//END OF CHAPTER 3 NOTES
-
 /*Lesson 3.1: Syntax & Semantic Errors
-*
+* errors generally fall into one of two categories: syntax errors or semantic (logic) errors
+* Syntax Error - occurs when you write a statement that is not valid according to the grammar of the C++ language
+*   includes errors such as missing semicolons, undeclared variables, mismatched parentheses or braces, etc.
+*   most compilers will generate syntax error warnings so that they can be easily fixed
+* Semantic Error - occurs when a statement is syntactically valid, but does not do what the programmer intended
+*   may cause your program to crash, such as using the case of division by zero
+*   most of the time will just produce the wrong output
+* modern compilers are becoming increasing better at detecting semantic errors, but most of the time are hard to find in the code
+*   the use of debugging techniques is the only way to resolve these errors */
 
+/*Lesson 3.2: The Debugging Process
+* once a problem has been identified, debugging the code generally consists of five steps...
+*   1. Find the root cause of the problem (usually the line of code that isn't working)
+*   2. Ensure that you understand why the issue is occurring
+*   3. Determine how you'll fix the issue
+*   4, Repair the issue causing the problem
+*   5. Retest to ensure the problem has been fixed and no new problems have emerged */
+//EXAMPLE...
+#include <iostream>
+
+//Adds two numbers
+int add(int x, int y)
+{
+  return x - y;
+}
+int main()
+{
+  std::cout << add(5, 3) << '\n';
+  return 0;
+}
+/*Find the root cause: on Line 10, the program passes in literals from arguments (5 and 3)
+*   the object is to add, but the program is producing the wrong output
+*   the only statement in the function that should add is Line 6
+* Understand the problem: the wrong operator is being used in Line 6
+* Determine a fix: simply change the operator from '-' to '+'
+* Repair the issue: change the operator as stated above
+* Retest: after implementing the change, rerunning the program will now produce the correct output  */
+
+/*Lesson 3.3: A Strategy for Debugging
+* bugs can be caused by making bad assumptions
+* bugs can often be located by the integrated debugger in the IDE with three steps...
+*   1. Figure out how to reproduce the problem
+*   2. Run the program and gather information to narrow down where the problem is
+*   3. Repeat the prior step until the problem is found
+* Reproduction Steps - a list of clear and precise steps that can be followed to cause the issue to reoccur
+* if reproduction does not work, some educated guesses can be made about where the bug is   */
+
+/*Lesson 3.4: Basic Debugging Tactics
+* Debugging Tactic #1: Commenting out your code
+*   commenting out blocks of code will allow the issue to be quickly isolated to a single function
+*     when the problem goes away, the block of code that was just commented out is responsible and should be evaluated
+*   this tactic doesn't pinpoint the issue, but it does decrease the amount of code that needs to be looked through
+* Debugging Tactic #2: Validating your code flow
+*   a common issue in complex programs is that a function is being called too many times
+*   in these cases, it is helpful to place statements at the top of the function to print the function's name
+*     when the program runs, the user can see which functions are getting called
+*   TIP: when adding temporary debugging statements, it can be helpful to not indent them so they are easier to see
+* Debugging Tactic #3: Printing values
+*   some types of bugs may be calculating or passing the wrong value
+*   the user can output the value of variables (including parameters) or expressions to ensure correctness
+*   this is another method to isolate the issue to a code block or even a singular line
+*     in some cases, the programmer may add a function 'getUserInput' that passes all called variables into 'x' to see the outputs
+*     this function will usually end with 'return --x;'
+*   'return --x;' creates a double negative of the output
+* using print statements to debug code is NOT best practice b/c...
+*   1. Debug statements clutter the code
+*   2. Debug statements clutter the output of the program
+*   3. Debug statements must be removed after debugging, which makes them non-reusable
+*   4. Debug statements require modification of your code to both add and to remove, which can introduce new bugs */
+
+/*Lesson 3.5: More Debugging Tactics
+* these tactics will mitigate some of the issues described in the previous lesson
+* Conditionalizing Your Debugging Code:
+*   one way to make it easier to disable and re-enable debugging throughout your program is to make your debugging statements conditional using preprocessor directives
+*     this allows code to be disabled/enabled by simply commenting out the directive
+* Using a Logger:
+*   an alternative approach to using a directive statement is to send the debugging info to a log file
+*   Log File - a file (normally stored on a disk) that records events that occur in software
+*     the process of writing information to a log file is referred to as 'logging'
+*   log files have a few advantages such as avoiding clutter & ease of sending the files for third-party diagnosis
+*     a logger can also be easily disabled by changing the log identifier to 'none' */
+
+/*Lesson 3.6: Using an Integrated Debugger: Stepping
+* 
+
+//END OF CHAPTER 3 NOTES
 //END OF LVL 1.2 NOTES
