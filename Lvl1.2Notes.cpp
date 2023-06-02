@@ -664,7 +664,74 @@ int main()
 *   provides a convenient way to execute the rest of a function block when it has been debugged */
 
 /*Lesson 3.7: Using an Integrated Debugger: Running & Breakpoints
-*
+* modern debuggers provide more tools than stepping to efficiently debug programs
+* Run to Cursor - a command that executes the program until execution reaches the statement selected by the cursor
+*   it then returns control to the programmer to debug from that point forward
+* Continue - a command that allows the program to continue running the program as normal, either until the program terminates, or until a trigger
+*   triggers may be errors or breakpoints
+* Start - a command that performs the same actions as 'continue', just starting from the beginning of the program
+*   can only be invoked when no other debug actions are active
+* Breakpoint - a special marker that tells the debugger to stop execution of the program at the breakpoint when running a debug command
+*   breakpoints are the only command that will interrupt a 'start' command
+*   have some advantages over 'run to cursor'...
+*     a breakpoint will return control to the programmer as soon as an interruption occurs
+*     a breakpoint can be set and it will persist until it is removed
+*     a breakpoint is placed on a line, not in the execution path
+* Set Next Statement - a command that allows the programmer to change the point of execution to some other statement
+*   sometimes referred to as the 'jumping' command
+*   can be used to jump forward over some code or jump backward to repeat the execution of some code
+* WARNING: the 'set next' statement will change the point of execution, but not the program state
+*   this command should be used with caution, especially when jumping backwards
+*   DO NOT use this command to change the point of execution; it will likely crash the program  */
 
+/*Lesson 3.8: Using an Integrated Debugger: Watching Variables
+* Watching a Variable - the process of inspecting the value of a variable while the program is executing a debug command
+*   most debuggers provide many ways to watch a variable
+*   in most IDEs, a watch window will open
+* a variable can usually be watched by executing the Watch or QuickWatch command and hovering the mouse over a variable
+*   not particularly suitable for watching the change in a variable over a program's execution
+* Watch Window - a window where you can add variables you would like to continually inspect
+*   these variables will be updated as the program is stepped through
+*   there are typically two ways to add variables to the watch window...
+*     1. open the watch window and type in the variable name in the watch window
+*     2. in the code window, right-click on the variable to watch and choose 'Add Watch' or 'Watch x'
+* variables that go out of scope will typically stay in the watch window, but will be marked as 'not available'
+*   if the variable returns to scope, the value will begin showing again
+* using watches is the best way to watch the value of a variable change over time
+* the watch window can also evaluate expressions
+*   highlight an expression in the program, inspect the value of the expression by adding to the watch window
+* WARNING: identifiers in watched expressions will evaluate to their current values, not what it will evaluate to
+* TIP: some IDEs will offer an option to watch all local variables at once by clicking 'locals' */
+
+/*Lesson 3.9: Using an Integrated Debugger: The Call Stack
+* modern debuggers contain the call stack window
+* Call Stack - a list of all active functions that have been called to get to the current point of execution
+*   includes an entry for each function called, as well as which line of code will be returned to when the function returns
+*   when a new function is called, it is added to the top of the call stack
+* Call Stack Window - a debugger window that shows the current call stack state
+* the call stack is useful in conjuction with breakpoints, so that the programmer may identify what function is being called at an interruption */
+
+/*Lesson 3.10: Finding Issues Before They Become Problems
+* the longer an error stays in the code, the harder it will be to find in the debugging process
+* common ways to avoid creating errors...
+*   > follow best practices
+*   > don't program when tired
+*   > understand where the common pitfalls are in a language
+*   > keep your programs simple
+*   > don't let your functions get too long or complex (functions 10 lines or less are generally good)
+*   > prefer using the standard library to write code, when possible
+*   > comment your code liberally
+* as new capabilities are added to a program, the program may become harder to understand
+* Refactoring - the process of making structural changes to a program without changing its behavior
+* errors can also occur unexpectedly if a user uses an application in an unanticipated way
+* Defensive Programming - a practice whereby the programmer tries to anticipate all of the ways the software could be misused
+*   this is either by end-users or by other developers using the code
+*   these misuses can often be detected and mitigated through defensive programming
+* BEST PRACTICE: write the program a little at a time, run it, and debug it
+* Unit Testing - a software testing method by which small units of source code are tested to determine if they are correct
+*   constraint-based techniques involve the addition of some extra code to check that some set of assumptions are not violated
+*     a common method incorporates the 'assert' and 'static_assert' commands
+* Static Analysis Tools - programs that analyze your code to identify specific semantic issues
+*   these tools are good at identifying where a piece of code does not follow best practices  */
 //END OF CHAPTER 3 NOTES
 //END OF LVL 1.2 NOTES
