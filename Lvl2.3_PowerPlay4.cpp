@@ -15,14 +15,29 @@
 
 struct Address
 {
-  int streetNumber;
-  string street;
-  string city;
-  string state;
-  int zipcode;
+  int streetNumber{};
+  char street{};
+  char city{};
+  char state{};
+  int zipcode{};
 };
 
 int main()
 {
+  std::array<Address, 3>userAddresses
   return 0;
 }
+
+struct Card
+{
+  Suit suit{};
+  FaceValue faceValue{};
+}
+
+int main()
+{
+  std::array<Card, 5>hand
+  {{
+    { Suit::Hearts, FaceValue::Ace },
+    { Suit::Diamonds, FaceValue::Two }
+  }};
