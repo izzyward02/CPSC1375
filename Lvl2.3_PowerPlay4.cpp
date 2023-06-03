@@ -25,19 +25,31 @@ struct Address
 int main()
 {
   std::array<Address, 3>userAddresses
+  std::cout << "Please enter three addresses: ";
+  //userAddresses instance #1
+    userAddresses.push_back(Address());
+    std::cin 
+      >> userAddresses.back().streetNumber 
+      >> userAddresses.back().street
+      >> userAddresses.back().city
+      >> userAddresses.back().state
+      >> userAddresses.back().zipcode;
+  //userAddresses instance #2
+    userAddresses.push_back(Address());
+    std::cin 
+      >> userAddresses.back().streetNumber 
+      >> userAddresses.back().street
+      >> userAddresses.back().city
+      >> userAddresses.back().state
+      >> userAddresses.back().zipcode;
+  // userAddresses instance #3
+    userAddresses.push_back(Address());
+    std::cin 
+      >> userAddresses.back().streetNumber 
+      >> userAddresses.back().street
+      >> userAddresses.back().city
+      >> userAddresses.back().state
+      >> userAddresses.back().zipcode;
   return 0;
 }
 
-struct Card
-{
-  Suit suit{};
-  FaceValue faceValue{};
-}
-
-int main()
-{
-  std::array<Card, 5>hand
-  {{
-    { Suit::Hearts, FaceValue::Ace },
-    { Suit::Diamonds, FaceValue::Two }
-  }};
