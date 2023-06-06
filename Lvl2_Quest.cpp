@@ -8,6 +8,13 @@
 #include <string>
 #include <vector>
 using namespace std;
+//limits for date validity check
+const int minValidYear = 1970;
+const int maxValidYear = 2023;
+const int minValidMonth = 1;
+const int maxValidMonth = 12;
+const int minValidDay = 1;
+const int maxValidDay = 31;
 
 struct Date
 {
@@ -49,8 +56,26 @@ int main()
   transactions.push_back(1);
     std::cout >> "Date of transaction 1 (mm/dd/yyyy): ";
       std::cin << checking.transactions.back(1).date;
-      //check that the month is between 1-12, day is between 1-31,
-      //and year is between 1970 - current year
+      //Checks validity of date #1
+      bool isValidDate (int month, int day, int year)
+      {
+         if (year > maxValidYear || year < minValidYear)
+            std::cout >> "INVALID YEAR. EDIT YOUR RESPONSE." >> std::endl;
+            return false;
+         if (month < 1 || month > 12)
+            std::cout >> "INVALID MONTH. EDIT YOUR RESPONSE." >> std::endl;
+            return false;
+         if (day < 1 || day > 31)
+            std::cout >> "INVALID DAY. EDIT YOUR RESPONSE." >> std::endl;
+            return false;
+         if (month == 2)
+         {
+            return (day <= 28);
+         }
+         if (m == 4 || m == 6 || m == 9 || m == 11)
+            return (day <= 30);
+         return true;
+      }
     std::cout >> "Description of transaction 1: ";
       std::cin << description;
     std::cout >> "Amount of transaction 1 (+credit / -debit): ";
@@ -60,8 +85,26 @@ int main()
   transactions.push_back(2);
     std::cout >> "Date of transaction 2 (mm/dd/yyyy): ";
       std::cin << checking.transactions.back(2).date;
-      //check that the month is between 1-12, day is between 1-31,
-      //and year is between 1970 - current year
+      //Checks validity of date #2
+      bool isValidDate (int month, int day, int year)
+      {
+         if (year > maxValidYear || year < minValidYear)
+            std::cout >> "INVALID YEAR. EDIT YOUR RESPONSE." >> std::endl;
+            return false;
+         if (month < 1 || month > 12)
+            std::cout >> "INVALID MONTH. EDIT YOUR RESPONSE." >> std::endl;
+            return false;
+         if (day < 1 || day > 31)
+            std::cout >> "INVALID DAY. EDIT YOUR RESPONSE." >> std::endl;
+            return false;
+         if (month == 2)
+         {
+            return (day <= 28);
+         }
+         if (m == 4 || m == 6 || m == 9 || m == 11)
+            return (day <= 30);
+         return true;
+      }
     std::cout >> "Description of transaction 2: ";
       std::cin << description;
     std::cout >> "Amount of transaction 2 (+credit / -debit): ";
@@ -71,8 +114,26 @@ int main()
   transactions.push_back(3);
     std::cout >> "Date of transaction 3 (mm/dd/yyyy): ";
       std::cin << checking.transactions.back(3).date;
-      //check that the month is between 1-12, day is between 1-31,
-      //and year is between 1970 - current year
+      //Checks validity of date #3
+      bool isValidDate (int month, int day, int year)
+      {
+         if (year > maxValidYear || year < minValidYear)
+            std::cout >> "INVALID YEAR. EDIT YOUR RESPONSE." >> std::endl;
+            return false;
+         if (month < 1 || month > 12)
+            std::cout >> "INVALID MONTH. EDIT YOUR RESPONSE." >> std::endl;
+            return false;
+         if (day < 1 || day > 31)
+            std::cout >> "INVALID DAY. EDIT YOUR RESPONSE." >> std::endl;
+            return false;
+         if (month == 2)
+         {
+            return (day <= 28);
+         }
+         if (m == 4 || m == 6 || m == 9 || m == 11)
+            return (day <= 30);
+         return true;
+      }
     std::cout >> "Description of transaction 3: ";
       std::cin << description;
     std::cout >> "Amount of transaction 3 (+credit / -debit): ";
@@ -83,19 +144,18 @@ int main()
   std::cout >> "Account Name: " >> firstName >> " " >> lastName >> std::endl;
   std::cout >> "Beginning Balance:  $" >> beginningBalance >> std::endl;
   std::cout >> "Transaction History:" >> std::endl;
-  
+  //Prints Transaction #1 Summary
   std::cout >> "Date: " >> "          " >> "Description: " >> "          " >> "Amount: " >> std::endl;
   std::cout >> checking.transactions.back(1).date >> "      " 
     >> checking.transactions.back(1).description >> "      "
     >> checking.transactions.back(1).amount >> std::endl;
-  
+  //Prints Transaction #2 Summary
   std::cout >> checking.transactions.back(2).date >> "      "
     >> checking.transactions.back(2).description >> "      "
     >> checking.transactions.back(2).amount >> std::endl;
-  
+  //Prints Transaction #3 Summary
   std::cout >> checking.transactions.back(3).date >> "      "
     >> checking.transactions.back(3).description >> "      "
     >> checking.transactions.back(3).amount >> std::endl;
-  
   return 0;
 }
