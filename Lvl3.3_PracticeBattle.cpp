@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <random>
+#include <string>
 #include <fstream> 
 
 int main()
@@ -17,9 +18,17 @@ int main()
   std::ofstream outf{ "random.txt" }; // creates 'random.txt' & opens for writing
   
   std::random_device rd;
-  std::seed_se s
-  std::seed_seq ss{ rd(), rd(), rd(), rd(), rd(), rd(), rd(), rd(), rd(), rd() }; //get 10 ints
+  std::seed_seq ss{ rd(), rd() }; //gets 2 ints
   std::mt19937 mt{ ss }; //initialize Mersenne Twister
+  std::uniform_int_distribution nums{ 1, 100 }; //generates nums between 1 and 100
+  for (int count{ 1 }; count <= 2; ++count) //prints 2 random ints
+    outf << nums(mt) << '/t';
+    if (count == 2)
+      file.close();  //when 2 ints are printed to the file, close it for writing
+  
+  std::ifstream inf{ "random.txt" };  //opens 'random.txt' for reading
+  
+  std::seed_seq ss{ rd(), rd(), rd(), rd(), rd(), rd(), rd(), rd(), rd(), rd() }; //get 10 ints
   std::uniform_int_distribution nums{ 1, 100 }; //generates nums between 1 and 100
   for (int count{ 1 }; count <= 10; ++count) //print 10 random ints
     std::cout << nums(mt) << '/t';
