@@ -36,5 +36,11 @@ int main()
     if (count % 10 == 0) //when 10 ints are printed, start a new sequence
       std::cout << '\n';
   
+  while (inf) //while there is input to read
+  {
+    std::string strInput;   //read content & print to file
+    std::getline(inf, strInput);
+    std::cout << strInput << '\n';
+  }
   return 0;
 }
