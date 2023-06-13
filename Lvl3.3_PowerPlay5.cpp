@@ -18,7 +18,9 @@ int main()
       std::cout << "bernoulli_distribution (0.9) x 100:" << std::endl;
       std::cout << "true:  " << count << std::endl;
       std::cout << "false: " << nums - count << std::endl;
-      std::cout
+      outf << nums << '\t';
+  
+  std::ifstream inif{ "numbers.txt" };
 
   return 0;
 }
