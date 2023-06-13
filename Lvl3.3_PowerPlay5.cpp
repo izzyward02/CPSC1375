@@ -5,6 +5,7 @@
 
 int main()
 {
+  std::ofstream outf{ "random.txt" };
   const int nums = 100;
 
   std::default_random_engine generator;
@@ -17,6 +18,7 @@ int main()
       std::cout << "bernoulli_distribution (0.9) x 100:" << std::endl;
       std::cout << "true:  " << count << std::endl;
       std::cout << "false: " << nums - count << std::endl;
+      std::cout
 
   return 0;
 }
