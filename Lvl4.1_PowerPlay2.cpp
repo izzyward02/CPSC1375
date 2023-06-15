@@ -6,3 +6,13 @@
 *         (private) vector<Coordinate> points; & float calculateDistance(Coordiante point1, Coordinate point2)
 *         int main() should include...
 *         Create a polygon called 'octagon', add 8 coordinates via user input, and output the perimeter   */
+
+#include <iostream>
+#include <vector>
+#include <math.h>
+
+class Polygon
+{
+  public:
+    struct Coordinate
+}
