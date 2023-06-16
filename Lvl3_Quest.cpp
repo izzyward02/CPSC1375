@@ -106,11 +106,11 @@ int main()
 
     switch (menuSelection)
     //Add Account  
-      case 1:
+      case 1:  //calls newAccount function & adds it to the accounts vector
         accounts.push_back(newAccount(accounts));
         break;
     //Add Transaction
-      case 2:
+      case 2:  //asks for accountID, calls findAccount for the index, calls addTransaction to create a new transaction & pushes onto vector
         std::cout << "What is your account ID?: ";
         std::cin >> accountID;
         if (findAccount(accountID, accounts) != 1)
@@ -119,7 +119,7 @@ int main()
           std::cout << "Account not located";
         break;
     //Get Balance
-      case 3:
+      case 3:  //asks for accountID, calls findAccount, calls getCurrentBalance & passes in correct amount, displays balance on screen
         std::cout << "What is your account ID?: ";
         std::cin >> accountID;
         if (findAccount(accountID, accounts) != 1)
@@ -128,7 +128,7 @@ int main()
           std::cout << "Account not located";
         break;
     //List Transactions
-      case 4:
+      case 4:  //asks for accountID, calls findAccount, displays all transactions on screen w/ printTransaction for loop
         std::cout << "What is your account ID?: ";
         std::cin >> accountID;
         if (findAccount(accountID, accounts) != 1)
@@ -141,7 +141,7 @@ int main()
           std::cout << "Account not located";
         break;
     //Exit Program
-      case 5:
+      case 5:  //sets menuIsOpen to false & closes terminal
         menuIsOpen{ false };
         break;
   }
