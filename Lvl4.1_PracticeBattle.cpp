@@ -11,8 +11,6 @@
 #include <vector>
 #include <string>
 #include "car_class.h"
-#ifndef CAR_CLASS_H
-#define CAR_CLASS_H
 
 class Car
 {
