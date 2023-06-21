@@ -1,3 +1,9 @@
+/*   Izzy Ward	CPSC 1375   June 21, 2023	
+*	INSTRUCTIONS:
+*	  Continuing from the Lvl 3 quest, add two pieces of functionality:
+*	  The bank occasionally has a prize drawing for a random account holder. Randomly select an account.
+*	  The ability to save and load the accounts. 	*/
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -84,6 +90,7 @@ Account& chooseAccount(std::vector<Account>& accounts)
 		else
 			std::cout << "not a valid ID!\n";
 	}
+	return Account;
 	
 }
 
