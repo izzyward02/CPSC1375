@@ -12,5 +12,30 @@
 
 int main()
 {
+  float sallysAllowance{ 0.0f }, johnsAllowance{ 0.0f }; 
+  float dad{ nullptr };
+
+  while (float dad{ true })
+  {
+   //while true, who is getting allowance?
+   std::cout << "Is Sally or John getting allowance?" << std::endl;
+   std::cin >> name;
+   //point at person getting allowance
+   if (name == Sally)
+    dad.sallysAllowance();
+   //how much allowance?
+    std::cout << "How much allowance does Sally get?: ";
+    std::cin >> amountS;
+   //add amount to allowance
+    sallysAllowance.amount(amountS);
+   else if (name == John)
+    dad.johnsAllowance();
+   //how much allowance?
+    std::cout << "How much allowance does John get?: ";
+    std::cin >> amountJ;
+    johnsAllowance.amount(amountJ);
+   else
+    std::cout << "Please enter Sally or John" << std::endl;
+  }
   return 0;
 }
