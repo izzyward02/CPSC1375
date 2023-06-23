@@ -16,13 +16,15 @@
 #define CARD_H
 class Card
 {
-public: //getters & setters
-  
 private:
-  std::string cardName;
-  std::string cardType;
-  std::string cardColor
-  int manaCost;
+	std::string cardType[6] = {"Creature", "Enchantment", "Sorcery". "Artifact", "Instant", "Land"};
+        std::string cardColor[6] = {"Blue", "Green", "Red", "Black", "White", "Colorless"};
+	std::string cardType;
+	int manaCost;
+
+public:
+	Card();
+	Card(std::string cardType, std::string cardColor, std::string cardType, int manaCost);
 };
 #endif 
 
@@ -30,10 +32,16 @@ private:
 #define GAME_H
 class Game
 {
-public: //getters & settere
-  void shuffle();
-  
 private:
+	int lifeCounter[20] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+	bool inPlay;
+public:
+	Game();
+	Game(int lifeCounter, bool inPlay);
+	void shuffleDeck();
+	void discardCard();
+	void drawCard();
+	void placeLands();
 };
 #endif
 
@@ -41,9 +49,17 @@ private:
 #define PLAYER_H
 class Player
 {
-public: //getters & setters
-  void firstHand() const;
 private:
+	int numCards <= 7;
+	int deckSize <= 60;
+	int playerLife = 20;
+public:
+	Player();
+	Player(int numCards, int deckSize, int playerLife);
+	void firstHand() const;
+	void newHand() const;
+	void drawCards();
+	void displayHand();
 };
 #endif
 
