@@ -13,22 +13,6 @@
 #include "Transaction.h" //include transaction class header
 #include "Account.h"	//include account class header
 
-class Transaction
-{
-public:	
-	Transaction() = delete;
-	Transaction(Date date, std::string description, float amount);
-	void print() const; //used in Accounts class to display transaction info
-	//Getters
-	float getAmount() const;
-	Date getDate() const;
-	std::string getDescription() const;
-private:
-	Date date();
-	std::string description;
-	float amount;
-};
-
 //define and initialize findAccount, chooseAccount, prizeDrawing, loadAccounts, & saveAccounts functions
 int findAccount(int ID, const std::vector<Account> & accounts);
 Account& chooseAccount(std::vector<Account>& accounts);
