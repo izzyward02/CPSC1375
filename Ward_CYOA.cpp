@@ -10,23 +10,7 @@
 #include <vector>
 #include <string>
 
-//CLASS HEADERS
 
-#ifndef CARD_H
-#define CARD_H
-class Card
-{
-private:
-	std::string cardType[6] = {"Creature", "Enchantment", "Sorcery". "Artifact", "Instant", "Land"};
-        std::string cardColor[6] = {"Blue", "Green", "Red", "Black", "White", "Colorless"};
-	std::string cardType;
-	int manaCost;
-
-public:
-	Card();
-	Card(std::string cardType, std::string cardColor, std::string cardType, int manaCost);
-};
-#endif 
 
 #ifndef GAME_H
 #define GAME_H
