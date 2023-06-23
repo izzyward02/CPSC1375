@@ -1,5 +1,9 @@
 //header file for Account class inclusion in Lvl 4 Quest
 
+#include <iostream>
+#include <string>
+#include <vector>
+
 class Account
 {
 public:
