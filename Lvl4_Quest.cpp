@@ -10,33 +10,8 @@
 #include <random>
 #include <fstream>
 
-#include "Transaction.h"
-#include "Account.h"
-
-//Account class
-class Account
-{
-public:
-	static int lastID; //tracks last ID
-	Account(); //increments lastID & asks for info about account
-	Account(int ID, std::string firstName, std::string lastName, float beginningBalnce); 
-	void addTransaction(); //asks for info about transaction
-	void addTransaction(Date date; std::string description, float amount);
-	void print() const; //prints account info and transaction info
-	//Getters
-	float getCurrentBalance();
-	int getID() const;
-	std::string getFirstName(); const;
-	std::string getLastName(); const;
-	float getBeginningBalance() const;
-	std::vector<Transaction> getTransaction() const;
-private:
-	int ID;
-	std::string firstName;
-	std::string lastName;
-	float beginningBalance;
-	std::vector<Transaction>transactions;
-};
+#include "Transaction.h" //include transaction class header
+#include "Account.h"	//include account class header
 
 class Transaction
 {
@@ -54,7 +29,7 @@ private:
 	float amount;
 };
 
-//define and initialize findAccount, chooseAccount, prizeDrawing, loadAccounts, & saveAccounts
+//define and initialize findAccount, chooseAccount, prizeDrawing, loadAccounts, & saveAccounts functions
 int findAccount(int ID, const std::vector<Account> & accounts);
 Account& chooseAccount(std::vector<Account>& accounts);
 void prizeDrawing(const std::vector<Account>& accounts);
