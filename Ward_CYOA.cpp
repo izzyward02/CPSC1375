@@ -10,25 +10,6 @@
 #include <vector>
 #include <string>
 
-
-#ifndef PLAYER_H
-#define PLAYER_H
-class Player
-{
-private:
-	int numCards <= 7;
-	int deckSize <= 60;
-	int playerLife = 20;
-public:
-	Player();
-	Player(int numCards, int deckSize, int playerLife);
-	void firstHand() const;
-	void newHand() const;
-	void drawCards();
-	void displayHand();
-};
-#endif
-
 /* 
 EXAMPLE PROGRAM of a MTG game that gives info about cards in a deck and allows the user to draw and hand of 7
 
