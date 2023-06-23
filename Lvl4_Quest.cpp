@@ -147,13 +147,72 @@ void prizeDrawing(const std::vector<Account>& accounts)
 //function for loadAccounts
 std::vector<Account> loadAccounts(const std::string & accountFile)
 {
-	//takes vector of Account class & loads it from passed in file (.txt file)
-	//assigns each line based on indicated file structure
+	std::vector<Account> accounts;
+	std::ifstream dataFile;
+	dataFile.open("accounts.txt");//takes vector of Account class & loads it from passed in file (.txt file)
+
+	int fullNameOnAccount;
+	std::cin >> dataFile >> fullNameOnAccount;
+	int numOfAccounts;
+	std::cin >> datafile >> numOfAccounts;
+
+	for (int i{ 0 }; i < numOfAccounts; i++) //assigns each line based on indicated file structure
+	{
+		int tempID;
+		std::cin >> dataFile >> tempID;
+		std::string tempFirstName;
+		std::cin >> dataFile >> tempFirstName;
+		std::string tempLastName;
+		std::cin >> dataFile >> tempLastName;
+		float tempBeginningBalance;
+		std::cin >> dataFile >> tempBeginningBalance;
+
+		int numOfTransactions;
+		std::cin >> dataFile >> numOfTransactions;
+		std::vector<Transaction> tempTransactions;
+
+		for (int x{ 0 }; x < numOfTransactions; x++)
+		{
+			int month;
+			std::cin >> dataFile >> month;
+			int day;
+			std::cin >> dataFile >> day;
+			int year;
+			std::cin >> dataFile >> year;
+
+			std::string description;
+			std::cin >> dataFile >> description;
+
+			float amount;
+			std::cin >> datafile >> amount;
+
+			tempTransactions.push_back(Transaction((int month, int day, int year), description, amount));
+		}
+		accounts.push_back(Account{ tempID, tempFirstName, tempLastName, tempBeginningBalance, tempTransactions })
+	}
+	return accounts;
 }
 
 //function for saveAccounts
 void saveAccounts(const std::string & accountFile, const std::vector<Account>& accounts)
 {
 	//takes filename and vector of Account class from loadAccounts
+	std::ofstream dataFile;
+	dataFile.open(accountFile);
 	//saves it to save file it was loaded from (overwrites it)
+	std::cout << dataFile(accounts.at(accounts.size() - 1).ID) << "\n"; //writes ID of last account to file
+	std::cout << dataFile(accounts.size() << "\n"; //writes size of account vector
+
+	int numOfAccounts(accounts.size());
+	for (int i{ 0 }; i < numOfAccounts; i++)
+	{	//writes ID, name, and starting balance on one line & lists transactions on another line
+		std::cout << dataFile(accounts.at(i).ID) << " " << accounts.at(i).firstName << " " << accounts.at(i).lastName
+			<< " " << accounts.at(i).beginningBalance << "\n";
+		std::cout << dataFile(accounts.at(i).transaction.size()) << "\n";
+		//loops through transaction vector inside the account
+		for (int x{ 0 }; x < accounts.at(i).transaction.size(); x++)
+		{	//writes the description of each transaction and increments it
+			std::cout << dataFile << accounts.at(i).transaction.at(x).description << " " << accounts.at(i).transaction.at(x).amount << "\n";
+		}
+	}
 }
