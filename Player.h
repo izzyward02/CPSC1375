@@ -3,8 +3,11 @@
 *    It consists of a Card class, Game class, and Player class headers to control the functionality of the game.  */
 
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
+#include <random>
+#include <algorithm>
+#include <array>
 
 #ifndef PLAYER_H
 #define PLAYER_H
