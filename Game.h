@@ -12,8 +12,8 @@
 class Game
 {
 private:
-	int lifeCounter[20] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
-	bool inPlay;
+	int lifeCounter {};
+	bool inPlay {};
 public:
 	Game();
 	Game(int lifeCounter, bool inPlay);
@@ -21,5 +21,6 @@ public:
 	void discardCard();
 	void drawCard();
 	void placeLands();
+	lifeCounter = 20;
 };
 #endif
