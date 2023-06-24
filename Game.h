@@ -14,13 +14,16 @@ class Game
 private:
 	int lifeCounter {};
 	bool inPlay {};
+	void shuffleDeck {};
+	std::vector<Card> currentHand;
 public:
 	Game();
-	Game(int lifeCounter, bool inPlay);
-	void shuffleDeck();
+	Game(int lifeCounter, bool inPlay, void shuffleDeck, std::vector<Card> currentHand);
 	void discardCard();
-	void drawCard();
+	void drawCard(Card drawnCard);
 	void placeLands();
+	void displayHand();
 	lifeCounter = 20;
 };
 #endif
+
