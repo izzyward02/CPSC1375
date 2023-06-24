@@ -47,6 +47,28 @@ void Card::shuffleDeck()
 }
 
 //Game.h
+#include <iostream>
+#include <string>
+#include <vector>
+
+#ifndef GAME_H
+#define GAME_H
+
+class Game
+{
+private:
+	int lifeCounter {};
+	bool inPlay {};
+public:
+	Game();
+	Game(int lifeCounter, bool inPlay);
+	void shuffleDeck();
+	void discardCard();
+	void drawCard();
+	void placeLands();
+	lifeCounter = 20;
+};
+#endif
 
 //Game.cpp
 
