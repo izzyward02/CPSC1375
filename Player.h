@@ -18,15 +18,15 @@ private:
 	int numCards {};
 	int deckSize {};
 	int playerLife {};
+	Game currentHand;
 public:
 	Player();
 	Player(int numCards, int deckSize, int playerLife);
-	void firstHand() const;
-	void newHand() const;
-	void drawCards();
 	void displayHand();
+	void drawCard(Card drawnCard);
 	numCards <= 7;
 	deckSize <= 60;
 	playerLife = 20;
 };
+std::vector<Card> drawHand(std::vector<Card>& deck);
 #endif
