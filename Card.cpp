@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <random>
+#include <algorithm>
+#include <array>
+
 void Card::shuffleDeck()
 {
 	std::random_device seed;
