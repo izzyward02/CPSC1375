@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <array>
 
 #ifndef CARD_H
 #define CARD_H
@@ -12,13 +13,13 @@
 class Card
 {
 private:
-	std::string cardType[6] = {"Creature", "Enchantment", "Sorcery". "Artifact", "Instant", "Land"};
-        std::string cardColor[6] = {"Blue", "Green", "Red", "Black", "White", "Colorless"};
-	std::string cardType;
+	std::array cardType[6] = {"Creature", "Enchantment", "Sorcery". "Artifact", "Instant", "Land"};
+        std::array cardColor[6] = {"Blue", "Green", "Red", "Black", "White", "Colorless"};
+	std::array cardType;
 	int manaCost;
 
 public:
 	Card();
-	Card(std::string cardType, std::string cardColor, std::string cardType, int manaCost);
+	Card(std::array cardType, std::array cardColor, std::array cardType, int manaCost);
 };
 #endif 
