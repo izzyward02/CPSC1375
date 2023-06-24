@@ -12,9 +12,9 @@
 class Player
 {
 private:
-	int numCards <= 7;
-	int deckSize <= 60;
-	int playerLife = 20;
+	int numCards {};
+	int deckSize {};
+	int playerLife {};
 public:
 	Player();
 	Player(int numCards, int deckSize, int playerLife);
@@ -22,5 +22,8 @@ public:
 	void newHand() const;
 	void drawCards();
 	void displayHand();
+	numCards <= 7;
+	deckSize <= 60;
+	playerLife = 20;
 };
 #endif
