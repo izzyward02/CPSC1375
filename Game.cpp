@@ -3,6 +3,7 @@
 #include <string>
 #include <random>
 #include <algorithm>
+#include <array>
 
 void Game::shuffleDeck()
 {
