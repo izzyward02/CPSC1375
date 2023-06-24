@@ -21,5 +21,9 @@ private:
 public:
 	Card();
 	Card(std::array cardType, std::array cardColor, std::array cardType, int manaCost);
+	void tapCard();
+	void untapCard();
+	void movetoExile();
+	void movetoGraveyard();
 };
 #endif 
