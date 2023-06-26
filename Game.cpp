@@ -11,7 +11,7 @@ void Game::shuffleDeck()
 	std::default_random_engine engine(seed());
 	std::shuffle(drawCard.begin(), drawCard.end(), engine);
 }
-void Game::drawCard(Card drawnCard)
+void Game::drawCard(Card drawnCard)	//not much here (?)
 {
 	currentHand.push_back(drawnCard);
 }
