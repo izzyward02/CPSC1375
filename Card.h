@@ -15,7 +15,7 @@
 class Card
 {
 private:
-	std::array cardType[6] = {"Creature", "Enchantment", "Sorcery". "Artifact", "Instant", "Land"};
+	std::array cardType[6] = {"Creature", "Enchantment", "Sorcery". "Artifact", "Instant", "Land"};	//change these to enum classes, not arrays
         std::array cardColor[6] = {"Blue", "Green", "Red", "Black", "White", "Colorless"};
 	int manaCost;
 
