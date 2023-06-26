@@ -20,7 +20,6 @@ struct node
   node* next;
   node* search(node*head, int key)
   {
-    //if list is empty
     return nullptr;
   }
 };
@@ -41,5 +40,34 @@ node* search(node* head, int key)
 
 void duplicate (node* head, int key)
 {
-  
+  if (!ptr)
+    return nullptr;
+  else
+  {
+    root = newNode;
+    currnode = root;
+    while (currnode != NULL)
+        {
+          duplinode = currnode;
+          if (currnode -> info == insertNode)
+            {
+              currnode = currnode -> rLink;
+              duplinode -> rLink = newNode;
+              if ((newNode -> info) <= (currnode -> info))
+                  newNode -> rLink = currnode;
+              else
+                  newNode -> lLink = currnode;
+            }
+            else if (currnode -> info > insertNode)
+                currnode = currnode -> lLink;
+            else
+                currnode = currnode -> rLink;
+        }
+
+        if (duplinode -> info < insertNode)
+            duplinode -> rLink = newNode;
+        else if (duplinode -> info > insertNode)
+            duplinode -> lLink = newNode;
+    }
 }
+
