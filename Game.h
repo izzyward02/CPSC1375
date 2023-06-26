@@ -20,7 +20,7 @@ private:
 	std::vector<Card> currentHand;
 public:
 	Game();
-	Game(int lifeCounter, bool inPlay, std::vector<Card>& currentHand); //change data type of shuffleDeck to something else (?)
+	Game(int lifeCounter, bool inPlay, std::vector<Card>& currentHand);
 	void discardCard();
 	void drawCard(Card drawnCard);
 	void placeLands();
