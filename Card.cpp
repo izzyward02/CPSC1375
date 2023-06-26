@@ -17,11 +17,11 @@ void Card::drawCard()
 	drawCard.pop_back();
 	return temp;
 }
-void Card::print() const
+void myCard::print() const
 {
 	switch (cardType)
 	{
-		case CardType::Creature:	//this is an array. this won't work, enum is needed
+		case CardType::Creature:
 			std::cout << "Creature";
 			break;
 		case CardType::Enchantment:
