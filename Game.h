@@ -15,18 +15,17 @@
 class Game
 {
 private:
-	int lifeCounter {};
+	int lifeCounter {20};
 	bool inPlay {};
 	void shuffleDeck {};
 	std::vector<Card> currentHand;
 public:
 	Game();
-	Game(int lifeCounter, bool inPlay, void shuffleDeck, std::vector<Card> currentHand);
+	Game(int lifeCounter, bool inPlay, void shuffleDeck, std::vector<Card>& currentHand); //change data type of shuffleDeck to something else (?)
 	void discardCard();
 	void drawCard(Card drawnCard);
 	void placeLands();
 	void displayHand();
-	lifeCounter = 20;
 };
 #endif
 
