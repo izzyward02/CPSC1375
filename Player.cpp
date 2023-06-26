@@ -16,7 +16,7 @@ std::vector<Card> drawHand(std::vector<Card>& deck)
 	}
 	return hand;
 }
-void Player::drawCard(Card drawnCard)
+void Player::drawCard(Card drawnCard)	//not much here (?)
 {
 	currentHand.drawCard(drawnCard);
 }
