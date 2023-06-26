@@ -15,19 +15,20 @@
 class Card
 {
 private:
-	std::array cardType[6] = {"Creature", "Enchantment", "Sorcery". "Artifact", "Instant", "Land"};	//change these to enum classes, not arrays
-        std::array cardColor[6] = {"Blue", "Green", "Red", "Black", "White", "Colorless"};
 	int manaCost;
 
 public:
 	Card();
-	Card(std::array cardType, std::array cardColor, int manaCost);
+	Card(int manaCost);
 	void tapCard();
 	void untapCard();
 };
 #endif 
 
-struct Card
+enum class CardType() { "Creature", "Enchantment", "Sorcery", "Artifact", "Instant", "Land" };
+enum class CardColor() { "Blue", "Green", "Red", "Black", "White", "Colorless" };
+
+struct myCard
 {
 	CardType cardType{};
 	CardColor cardColor{};
