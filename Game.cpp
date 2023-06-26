@@ -24,9 +24,9 @@ void Game::displayHand()
 }
 void Game::discardCard()
 {
-	
+	currentHand.pop_back();
 }
 void Game::placeLands()
 {
-	
+	deckSize.pop_back();
 }
