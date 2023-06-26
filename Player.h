@@ -24,8 +24,8 @@ public:
 	Player(int numCards, int deckSize, int playerLife);
 	void displayHand();
 	void drawCard(Card drawnCard);
-	numCards <= 7;
-	deckSize <= 60;
+	numCards <= 7;	//change <= to something else, apparently doesn't make sense (?)
+	deckSize <= 60;	//don't use hard code values, use const or enums
 	playerLife = 20;
 };
 std::vector<Card> drawHand(std::vector<Card>& deck);
