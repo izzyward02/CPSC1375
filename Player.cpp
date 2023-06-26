@@ -7,7 +7,19 @@
 
 Player::Player()
 {
-	
+	numCards = 7;
+	deckSize = 60;	
+	playerLife = 20;
+}
+
+Player::Player(int numCards, int deckSize, int playerLife)
+{
+	if (numCards <= 7)
+		numCards = sentNumCards;
+	else
+		numCards = 7;
+	deckSize = 60;
+	playerLife = 20;
 }
 
 std::vector<Card> drawHand(std::vector<Card>& deck)
@@ -21,7 +33,7 @@ std::vector<Card> drawHand(std::vector<Card>& deck)
 	}
 	return hand;
 }
-void Player::drawCard(Card drawnCard)	//not much here (?)
+void Player::drawCard(Card drawnCard)
 {
 	currentHand.drawCard(drawnCard);
 }
