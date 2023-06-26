@@ -5,6 +5,11 @@
 #include <algorithm>
 #include <array>
 
+Player::Player()
+{
+	
+}
+
 std::vector<Card> drawHand(std::vector<Card>& deck)
 {
 	std::vector<Card> hand;
