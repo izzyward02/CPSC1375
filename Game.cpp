@@ -22,3 +22,11 @@ void Game::displayHand()
 		card.print();
 	}
 }
+void Game::discardCard()
+{
+	
+}
+void Game::placeLands()
+{
+	
+}
